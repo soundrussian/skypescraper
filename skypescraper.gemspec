@@ -10,6 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["soundrussian@gmail.com"]
 
   spec.summary       = %q{Extracts data from Skype database.}
+  spec.description   = %q{Import conversations and messages from a Skype database with ruby!}
   spec.homepage      = "http://github.com/soundrussian/skypescraper"
   spec.license       = "MIT"
 
