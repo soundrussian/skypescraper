@@ -9,6 +9,8 @@ describe Skypescraper::Extractor do
 
   describe '.conversations_for' do
     it 'fetches conversations where the given identity took part' do
+      extractor.conversations_for('nosuchuser')
+
       result = extractor.conversations_for('pavel.nosov87')
       group_chat = result.first
 

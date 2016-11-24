@@ -34,13 +34,16 @@ module Skypescraper
              ORDER BY last_activity_timestamp DESC
     SQL
     def conversations_for(identity)
-      return @conversations if @conversations
+      return @conversations[identity] if @conversations && @conversations[identity]
 
-      @conversations = []
+      @conversations ||= {}
+      @conversations[identity] = []
+
       connection.execute(CONVERSATIONS_SQL, identity) do |row|
-        @conversations << Skypescraper::Conversation.new(*row)
+        @conversations[identity] << Skypescraper::Conversation.new(*row)
       end
-      @conversations
+
+      @conversations[identity]
     end
   end
 end
